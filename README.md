@@ -44,14 +44,14 @@ To build this baseline, we trained two deep learning models on RR interval seque
 | `CNN_Cross_Validation.ipynb` | CNN | PyTorch | Full nested LOOCV, final trained model, evaluation plots |
 | `LSTM_W_Generation.ipynb` | LSTM | TensorFlow/Keras | Nested LOOCV + autoregressive RR sequence generation |
 
-> **Note on large files:** `RR_CNN_Healthy_Baseline_Weights.pth` and `cnn_nested_cv_results.pkl` exceed GitHub's 100MB file size limit and are stored in Google Drive only. [Access All Information here] [https://drive.google.com/drive/folders/1jI2YyMKGj0UgpXtjC1Ekzm3cdZ29wDx3?usp=share_link]
+> **Note on large files:** `RR_CNN_Healthy_Baseline_Weights.pth` and `cnn_nested_cv_results.pkl` exceed GitHub's 100MB file size limit and are stored in Google Drive only. **[Access to the entire folder structure]**  ([link](https://drive.google.com/drive/folders/1jI2YyMKGj0UgpXtjC1Ekzm3cdZ29wDx3?usp=share_link))
 
 ---
 
 ## Dataset
 
 **NSR2DB** — Normal Sinus Rhythm RR Interval Database
-- **Source:** PhysioNet ([link](https://physionet.org/content/nsrdb/1.0.0/))
+- **Source:** PhysioNet ([link](https://physionet.org/content/nsr2db/1.0.0/))
 - **Subjects:** 54 healthy adults
 - **Recording:** 24-hour Holter, 128 Hz sampling
 - **Format:** RR intervals in milliseconds (.txt files)
