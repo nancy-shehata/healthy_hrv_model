@@ -44,10 +44,7 @@ To build this baseline, we trained two deep learning models on RR interval seque
 | `CNN_Cross_Validation.ipynb` | CNN | PyTorch | Full nested LOOCV, final trained model, evaluation plots |
 | `LSTM_W_Generation.ipynb` | LSTM | TensorFlow/Keras | Nested LOOCV + autoregressive RR sequence generation |
 
-**Saved outputs:**
-- `RR_CNN_Healthy_Baseline_Weights.pth` — final CNN model weights
-- `nested_cv_results.pkl` — per-patient predictions for all 54 subjects
-- `lstm_loocv_results.csv` — LSTM LOOCV metrics checkpoint
+> **Note on large files:** `RR_CNN_Healthy_Baseline_Weights.pth` and `cnn_nested_cv_results.pkl` exceed GitHub's 100MB file size limit and are stored in Google Drive only. [Access All Information here] [https://drive.google.com/drive/folders/1jI2YyMKGj0UgpXtjC1Ekzm3cdZ29wDx3?usp=share_link]
 
 ---
 
@@ -129,7 +126,7 @@ The LSTM extends beyond prediction to full **autoregressive sequence generation*
 - **Mean collapse** is a known failure mode in autoregressive generation — the model tends to produce sequences with suppressed short-term variability. RMSSD and SD1 in particular tend to undershoot. Noise injection partially recovers this but does not fully solve it.
 - **SDNN and RMSSD alone are insufficient** for validating synthetic sequences. More rigorous validation requires entropy measures, DFA α1, and Wasserstein distance (consistent with Pimentel et al. methodology).
 - **128 Hz quantization** introduces a ~7.8ms resolution limit on RR intervals — rounding to integer ms is correct and intentional.
-- Free-tier **Colab GPU constraints** were encountered during training. The nested LOOCV is compute-heavy — recommend using an A100 runtime with Google Colab Pro(free for students) or running on Amarel (Rutgers HPC) for full 54-subject runs.
+- Free-tier **Colab GPU constraints** were encountered during training. The nested LOOCV is compute-heavy — recommend using an A100 runtime with Google Colab Pro (free for students) or running on Amarel (Rutgers HPC) for full 54-subject runs.
 
 ---
 
@@ -160,7 +157,7 @@ The LSTM extends beyond prediction to full **autoregressive sequence generation*
 | scikit-learn | — | Cross-validation, metrics |
 | matplotlib / seaborn | — | Evaluation plots |
 
-**Platform:** Google Colab (GPU runtime recommended) + Google Drive for data storage 
+**Platform:** Google Colab (GPU runtime recommended) + Google Drive for data storage
 
 **To load the saved CNN model:**
 ```python
@@ -176,7 +173,7 @@ model.eval()
 ```python
 import pickle
 
-with open('nested_cv_results.pkl', 'rb') as f:
+with open('cnn_nested_cv_results.pkl', 'rb') as f:
     nested_cv_results = pickle.load(f)
 ```
 
